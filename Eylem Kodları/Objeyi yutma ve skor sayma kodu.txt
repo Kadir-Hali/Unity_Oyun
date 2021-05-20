@@ -1,0 +1,56 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+
+public class Hedef : MonoBehaviour
+{
+    public float deger;
+    public Text score;
+    public Text ScoreText;
+    public
+
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        deger = 0;
+        score.text = "";
+        SetScoreText();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (deger == 6)
+        {
+
+            score.text = "Tebrikler Sahili Temizlediniz!";
+           
+        }
+        if (deger == 7)
+        {
+            Application.LoadLevel(Application.loadedLevel);
+        }
+       
+
+    }
+    void OnCollisionEnter(Collision hedef)
+    {
+        if (hedef.gameObject.tag == "hedef")
+        {
+            deger = deger + 1;
+            Destroy(hedef.gameObject);
+            SetScoreText();
+
+        }
+
+
+    }
+    void SetScoreText()
+    {
+        ScoreText.text = "Çöp= " + deger.ToString();
+    }
+
+}

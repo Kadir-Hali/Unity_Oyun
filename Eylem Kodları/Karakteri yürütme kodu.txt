@@ -1,0 +1,39 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Yurume : MonoBehaviour
+{
+    // Start is called before the first frame update
+    void Start()
+    {
+
+    }
+    public float hiz = 0.3f;
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetKey(KeyCode.W))
+        {
+            transform.Translate(0f, 0f, 0.3f);
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            transform.Translate(0f, 0f, -0.3f);
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            transform.Translate(0f, 9.0f, 0);
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            // transform.Translate(-0.05f, 0f, 0f);
+            transform.Rotate(0, -hiz, 0);
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            // transform.Translate(0.05f, 0f, 0.05f);
+            transform.Rotate(0, hiz, 0);
+        }
+    }
+}
